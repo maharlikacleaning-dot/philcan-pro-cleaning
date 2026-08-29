@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhilCan Pro Cleaning Services | Residential & Commercial Cleaning</title>
+<meta name="description" content="PhilCan Pro Cleaning Services — trusted residential and commercial cleaning. Book online or request a free quote.">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: { DEFAULT: '#0B3D66', 800: '#0B3D66', 900: '#082B49', 700: '#124A79' },
+          royal: '#1D6FB8',
+          gold: { DEFAULT: '#C9A24B', 100: '#F6EDD8', 300: '#E0C486', 500: '#C9A24B', 700: '#A57F32' },
+          cream: '#F8F6F1',
+          ink: '#1F2937'
+        },
+        fontFamily: {
+          display: ['"Fraunces"', 'serif'],
+          body: ['"Inter"', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; }
+  h1,h2,h3,h4, .font-display { font-family: 'Fraunces', serif; }
+
+  .sweep-card { position: relative; overflow: hidden; }
+  .sweep-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -60%;
+    width: 40%; height: 100%;
+    background: linear-gradient(115deg, transparent, rgba(201,162,75,0.16), transparent);
+    transform: skewX(-15deg);
+    transition: left 0.7s ease;
+    pointer-events: none;
+  }
+  .sweep-card:hover::before { left: 130%; }
+
+  .nav-link-underline { position: relative; }
+  .nav-link-underline::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0; height: 2px;
+    background: #C9A24B;
+    transition: width 0.25s ease;
+  }
+  .nav-link-underline:hover::after { width: 100%; }
+
+  #mobileMenu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+  #mobileMenu.open { max-height: 620px; }
+
+  ::selection { background: #C9A24B; color: #0B3D66; }
+
+  .fade-up { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.in-view { opacity: 1; transform: translateY(0); }
+
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 100;
+    background: rgba(8,43,73,0.55);
+    backdrop-filter: blur(2px);
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 1rem;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: #fff;
+    border-radius: 1.25rem;
+    width: 100%;
+    max-width: 680px;
+    max-height: 92vh;
+    overflow-y: auto;
+    transform: translateY(12px) scale(0.98);
+    opacity: 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .modal-overlay.open .modal-box { transform: translateY(0) scale(1); opacity: 1; }
+
+  .choice-btn {
+    border: 2px solid rgba(11,61,102,0.12);
+    border-radius: 0.9rem;
+    padding: 0.9rem 1rem;
+    text-align: left;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+    background: #fff;
+  }
+  .choice-btn:hover { border-color: rgba(201,162,75,0.6); }
+  .choice-btn.active { border-color: #C9A24B; background: #FFFDF7; box-shadow: 0 0 0 3px rgba(201,162,75,0.18); }
+
+  .faq-item { border-bottom: 1px solid rgba(11,61,102,0.1); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+  .faq-item.open .faq-answer { max-height: 400px; }
+  .faq-chevron { transition: transform 0.3s ease; }
+  .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+  /* Hero photo floating animations */
+  @keyframes float-up {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+  @keyframes float-down {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(14px); }
+  }
+  .float-up {
+    animation: float-up 5s ease-in-out infinite;
+  }
+  .float-down {
+    animation: float-down 6s ease-in-out infinite;
+  }
+  .float-up-slow {
+    animation: float-up 7s ease-in-out infinite;
+  }
+  .float-down-slow {
+    animation: float-down 5.5s ease-in-out infinite;
+  }
+</style>
+</head>
+<body class="bg-cream text-ink antialiased">
+
+<!-- ============ NAVBAR ============ -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur border-b border-navy/10">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16 md:h-20">
+    <a href="#front" class="flex items-center gap-2">
+      <img src="Logo3.jpg" alt="PhilCan Pro Cleaning Services logo"
+           class="w-16 h-16 md:w-20 md:h-20 object-contain shrink-0">
+      <span class="font-display text-navy font-semibold leading-tight">
+        <span class="text-lg md:text-xl block">PhilCan Pro</span>
+        <span class="hidden sm:block text-sm md:text-base font-medium text-navy/80">Cleaning Services</span>
+        <span class="sm:hidden text-sm font-medium text-navy/60"> Cleaning</span>
+      </span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-6 font-medium text-navy text-sm">
+      <a href="#front" class="nav-link-underline">Home</a>
+      <a href="#about" class="nav-link-underline">About</a>
+      <a href="#booking" class="nav-link-underline">Booking</a>
+      <a href="#reviews" class="nav-link-underline">Reviews</a>
+      <a href="#faq" class="nav-link-underline">FAQ</a>
+      <a href="#contact" class="nav-link-underline">Contact</a>
+    </nav>
+
+    <a href="#booking" class="hidden md:inline-block bg-navy hover:bg-navy-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors">
+      Book Now
+    </a>
+
+    <button id="menuBtn" class="md:hidden text-navy text-2xl" aria-label="Toggle menu" aria-expanded="false">
+      <i class="bi bi-list"></i>
+    </button>
+  </div>
+
+  <div id="mobileMenu" class="md:hidden bg-white border-t border-navy/10">
+    <div class="flex flex-col px-5 py-3 gap-1 font-medium text-navy">
+      <a href="#front" class="py-2.5 border-b border-navy/5">Home</a>
+      <a href="#about" class="py-2.5 border-b border-navy/5">About</a>
+      <a href="#booking" class="py-2.5 border-b border-navy/5">Booking</a>
+      <a href="#reviews" class="py-2.5 border-b border-navy/5">Reviews</a>
+      <a href="#faq" class="py-2.5 border-b border-navy/5">FAQ</a>
+      <a href="#contact" class="py-2.5">Contact</a>
+      <a href="#booking" class="mt-2 mb-1 bg-navy text-white text-center font-semibold px-5 py-2.5 rounded-full">Book Now</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ SECTION 1: FRONT / HERO ============ -->
+<section id="front" class="relative pt-[86px] pb-16 md:pt-[98px] md:pb-24 px-5 sm:px-8 bg-navy overflow-hidden">
+  <div class="absolute -top-20 -right-24 w-72 h-72 rounded-full bg-gold/10 blur-3xl"></div>
+  <div class="absolute -bottom-32 -left-16 w-80 h-80 rounded-full bg-royal/20 blur-3xl"></div>
+
+  <div class="relative max-w-6xl mx-auto mt-8 md:mt-12">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+      <div class="text-center lg:text-left">
+        <p class="uppercase tracking-[0.25em] text-gold text-xs md:text-sm font-semibold mb-3">
+          Trusted Cleaning, Done Right
+        </p>
+
+        <h1 class="font-display text-white text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] font-semibold leading-tight mb-5">
+          A spotless space,<br class="hidden sm:block">
+          without the hassle.
+        </h1>
+
+        <p class="text-white/70 text-base md:text-lg max-w-lg mx-auto lg:mx-0 mb-8">
+          PhilCan Pro Cleaning Services handles homes, offices, move-outs and post-construction messes —
+          so you get your time and your space back.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3">
+          <a href="#booking" class="w-full sm:w-auto bg-gold hover:bg-gold-700 text-navy font-semibold px-7 py-3.5 rounded-full transition-colors">
+            <i class="bi bi-calendar-check mr-2"></i>Book a Cleaning
+          </a>
+          <a href="#booking-quote" class="w-full sm:w-auto border border-white/30 hover:border-white text-white font-semibold px-7 py-3.5 rounded-full transition-colors">
+            Request a Free Quote
+          </a>
+        </div>
+
+        <div class="mt-10 grid grid-cols-3 gap-4 max-w-sm mx-auto lg:mx-0 text-white/80 text-xs">
+          <div class="border-t border-white/15 pt-3">
+            <span class="block text-gold font-display text-xl font-semibold">100%</span>
+            Insured Team
+          </div>
+          <div class="border-t border-white/15 pt-3">
+            <span class="block text-gold font-display text-xl font-semibold">2</span>
+            Service Lines
+          </div>
+          <div class="border-t border-white/15 pt-3">
+            <span class="block text-gold font-display text-xl font-semibold">24h</span>
+            Quote Turnaround
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: photo collage (desktop) with floating animations -->
+      <div class="relative hidden lg:block">
+        <div class="rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] float-up-slow">
+          <img src="images/pic1.png" alt="Professional cleaner wiping a conference table" class="w-full h-full object-cover">
+        </div>
+
+        <div class="absolute -top-6 -right-4 w-40 h-28 rounded-xl overflow-hidden shadow-xl border-4 border-navy float-down">
+          <img src="images/pic2.png" alt="Detail cleaning of glass display" class="w-full h-full object-cover">
+        </div>
+
+        <div class="absolute -bottom-8 left-6 w-44 h-32 rounded-xl overflow-hidden shadow-xl border-4 border-navy float-up">
+          <img src="images/pic4.png" alt="Friendly PhilCan Pro cleaner" class="w-full h-full object-cover">
+        </div>
+
+        <div class="absolute bottom-16 -right-2 w-28 h-20 rounded-lg overflow-hidden shadow-lg border-2 border-navy float-down-slow">
+          <img src="images/pic3.png" alt="Sparkling clean living room" class="w-full h-full object-cover">
+        </div>
+      </div>
+
+      <!-- Mobile version of the collage -->
+      <div class="lg:hidden grid grid-cols-2 gap-3 mt-6">
+        <div class="rounded-xl overflow-hidden aspect-[4/3] float-up">
+          <img src="images/pic1.png" alt="Cleaner at work" class="w-full h-full object-cover">
+        </div>
+        <div class="rounded-xl overflow-hidden aspect-[4/3] float-down">
+          <img src="images/pic4.png" alt="Friendly cleaner" class="w-full h-full object-cover">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2: ABOUT ============ -->
+<section id="about" class="py-20 md:py-28 px-5 sm:px-8 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
+      <div class="fade-up">
+        <p class="uppercase tracking-[0.2em] text-gold-700 text-xs font-semibold mb-3">About Us</p>
+        <h2 class="font-display text-navy text-3xl md:text-4xl font-semibold mb-6 leading-tight">
+          Cleaning is the job.<br>Trust is the standard.
+        </h2>
+        <p class="text-ink/70 leading-relaxed mb-4">
+          PhilCan Pro Cleaning Services was built around one idea: you should never have to double-check our work. Our trained crews follow consistent checklists on every visit, so a spotless result isn't a lucky outcome — it's the baseline.
+        </p>
+        <p class="text-ink/70 leading-relaxed">
+          Whether it's a weekly home tidy-up, a full office turnover, or clearing dust after a renovation, we bring the right team, tools and products for the job — and we show up when we say we will.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5 fade-up">
+        <div class="sweep-card p-6 rounded-2xl border border-navy/10 bg-cream">
+          <i class="bi bi-shield-check text-2xl text-navy mb-3 block"></i>
+          <h3 class="font-display font-semibold text-navy mb-1.5">Vetted & Trained Staff</h3>
+          <p class="text-sm text-ink/60">Every cleaner is background-checked and trained on our service standards.</p>
+        </div>
+        <div class="sweep-card p-6 rounded-2xl border border-navy/10 bg-cream">
+          <i class="bi bi-clock-history text-2xl text-navy mb-3 block"></i>
+          <h3 class="font-display font-semibold text-navy mb-1.5">On-Time, Every Time</h3>
+          <p class="text-sm text-ink/60">Scheduled arrival windows with confirmation, so your day stays on track.</p>
+        </div>
+        <div class="sweep-card p-6 rounded-2xl border border-navy/10 bg-cream">
+          <i class="bi bi-droplet-half text-2xl text-navy mb-3 block"></i>
+          <h3 class="font-display font-semibold text-navy mb-1.5">Safe, Effective Products</h3>
+          <p class="text-sm text-ink/60">Cleaning solutions chosen for results first, with care for your home and pets.</p>
+        </div>
+        <div class="sweep-card p-6 rounded-2xl border border-navy/10 bg-cream">
+          <i class="bi bi-cash-coin text-2xl text-navy mb-3 block"></i>
+          <h3 class="font-display font-semibold text-navy mb-1.5">Upfront Pricing</h3>
+          <p class="text-sm text-ink/60">Clear estimates by service type — no surprise charges after the fact.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3: BOOKING ============ -->
+<section id="booking" class="py-20 md:py-28 px-5 sm:px-8 bg-cream">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-14 fade-up">
+      <p class="uppercase tracking-[0.2em] text-gold-700 text-xs font-semibold mb-3">Booking</p>
+      <h2 class="font-display text-navy text-3xl md:text-4xl font-semibold mb-4">Choose your service</h2>
+      <p class="text-ink/70">Pick Residential or Commercial to see options, get an estimate, and send a booking request.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6 mb-16">
+      <button type="button" id="openResidentialBtn" class="sweep-card text-left p-8 rounded-2xl border-2 border-navy/10 bg-white transition-all hover:border-gold/50">
+        <i class="bi bi-house-heart text-3xl text-navy mb-4 block"></i>
+        <h3 class="font-display font-semibold text-navy text-2xl mb-2">Residential Cleaning</h3>
+        <p class="text-sm text-ink/60 mb-4">General home cleaning, move in/out turnovers, and post-construction clean-up.</p>
+        <span class="inline-flex items-center gap-1.5 text-gold-700 font-semibold text-sm">
+          Choose options <i class="bi bi-arrow-right"></i>
+        </span>
+      </button>
+
+      <button type="button" id="openCommercialBtn" class="sweep-card text-left p-8 rounded-2xl border-2 border-navy/10 bg-white transition-all hover:border-gold/50">
+        <i class="bi bi-building text-3xl text-navy mb-4 block"></i>
+        <h3 class="font-display font-semibold text-navy text-2xl mb-2">Commercial Cleaning</h3>
+        <p class="text-sm text-ink/60 mb-4">Offices, schools and clinics — cleaning scheduled around your operating hours.</p>
+        <span class="inline-flex items-center gap-1.5 text-gold-700 font-semibold text-sm">
+          Choose options <i class="bi bi-arrow-right"></i>
+        </span>
+      </button>
+    </div>
+
+    <div id="booking-quote" class="max-w-xl mx-auto fade-up">
+      <div class="text-center mb-6">
+        <h3 class="font-display text-navy text-xl font-semibold mb-1.5">
+          <i class="bi bi-envelope-paper mr-2 text-gold-700"></i>Prefer a Custom Quote First?
+        </h3>
+        <p class="text-sm text-ink/60">Not ready to book yet? Tell us about the space and we'll email you a custom quote.</p>
+      </div>
+
+      <form id="quoteForm" class="rounded-2xl border border-navy/10 bg-white shadow-sm p-6 space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-navy mb-1.5" for="qs-service">Service Needed</label>
+          <select id="qs-service" name="Service" required
+            class="w-full rounded-lg border border-navy/15 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500">
+            <option value="">Select a service…</option>
+            <option>Residential — General (Standard Clean)</option>
+            <option>Residential — General (Deep Clean)</option>
+            <option>Residential — Move In / Move Out</option>
+            <option>Residential — Post-Construction</option>
+            <option>Commercial — Office</option>
+            <option>Commercial — School</option>
+            <option>Commercial — Clinic</option>
+          </select>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-navy mb-1.5" for="qs-name">Full Name</label>
+            <input id="qs-name" name="Name" type="text" required
+              class="w-full rounded-lg border border-navy/15 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500" placeholder="Juan Dela Cruz">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-navy mb-1.5" for="qs-phone">Phone Number</label>
+            <input id="qs-phone" name="Phone" type="tel" required
+              class="w-full rounded-lg border border-navy/15 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500" placeholder="09XX XXX XXXX">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-navy mb-1.5" for="qs-email">Email Address</label>
+          <input id="qs-email" name="Email" type="email" required
+            class="w-full rounded-lg border border-navy/15 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500" placeholder="you@email.com">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-navy mb-1.5" for="qs-address">Property / Establishment Address</label>
+          <input id="qs-address" name="Address" type="text" required
+            class="w-full rounded-lg border border-navy/15 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500" placeholder="City / area, approx. size">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-navy mb-1.5" for="qs-details">Additional Details</label>
+          <textarea id="qs-details" name="Details" rows="3"
+            class="w-full rounded-lg border border-navy/15 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500" placeholder="Preferred date, special requests, condition of the space…"></textarea>
+        </div>
+
+        <button type="submit"
+          class="w-full bg-navy hover:bg-navy-700 text-white font-semibold px-6 py-3 rounded-full transition-colors">
+          Send Quote Request
+        </button>
+        <p id="formNote" class="text-xs text-ink/50 text-center">We typically reply within 24 hours.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESIDENTIAL MODAL ============ -->
+<div id="residentialModalOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="resModalTitle">
+  <div class="modal-box">
+    <div class="p-6 sm:p-8">
+      <div class="flex items-start justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <span class="w-11 h-11 rounded-full bg-navy/5 flex items-center justify-center text-navy text-xl shrink-0">
+            <i class="bi bi-house-heart"></i>
+          </span>
+          <h3 id="resModalTitle" class="font-display text-navy text-xl font-semibold leading-tight">Residential Cleaning</h3>
+        </div>
+        <button onclick="closeResidentialModal()" type="button" aria-label="Close" class="text-navy/50 hover:text-navy text-xl leading-none p-1">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div id="resModalBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ COMMERCIAL MODAL ============ -->
+<div id="commercialModalOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="commModalTitle">
+  <div class="modal-box">
+    <div class="p-6 sm:p-8">
+      <div class="flex items-start justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <span class="w-11 h-11 rounded-full bg-navy/5 flex items-center justify-center text-navy text-xl shrink-0">
+            <i class="bi bi-building"></i>
+          </span>
+          <h3 id="commModalTitle" class="font-display text-navy text-xl font-semibold leading-tight">Commercial Cleaning</h3>
+        </div>
+        <button onclick="closeCommercialModal()" type="button" aria-label="Close" class="text-navy/50 hover:text-navy text-xl leading-none p-1">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div id="commModalBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SECTION 4: REVIEWS (Static) ============ -->
+<section id="reviews" class="py-20 md:py-28 px-5 sm:px-8 bg-white">
+  <div class="max-w-5xl mx-auto">
+    <div class="flex flex-col sm:flex-row items-center sm:items-end justify-between gap-4 mb-4 fade-up">
+      <div class="text-center sm:text-left">
+        <p class="uppercase tracking-[0.2em] text-gold-700 text-xs font-semibold mb-3">Reviews</p>
+        <h2 class="font-display text-navy text-3xl md:text-4xl font-semibold">What customers are saying</h2>
+      </div>
+      <a id="googleReviewsLink" href="https://g.page/r/YOUR_GOOGLE_BUSINESS_PROFILE" target="_blank" rel="noopener"
+        class="text-sm font-semibold text-navy hover:text-gold-700 transition-colors inline-flex items-center gap-1.5 shrink-0">
+        See us on Google <i class="bi bi-box-arrow-up-right text-xs"></i>
+      </a>
+    </div>
+
+    <div id="googleRatingSummary" class="flex items-center gap-3 mb-10 fade-up"></div>
+
+    <div id="reviewsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- filled by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 5: FAQ ============ -->
+<section id="faq" class="py-20 md:py-28 px-5 sm:px-8 bg-cream">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-12 fade-up">
+      <p class="uppercase tracking-[0.2em] text-gold-700 text-xs font-semibold mb-3">Questions</p>
+      <h2 class="font-display text-navy text-3xl md:text-4xl font-semibold mb-4">Frequently Asked Questions</h2>
+      <p class="text-ink/70">Everything customers usually ask before their first booking.</p>
+    </div>
+
+    <div id="faqList" class="fade-up border-t border-navy/10 bg-white rounded-2xl px-2 sm:px-4"></div>
+
+    <p class="text-center text-sm text-ink/60 mt-10 fade-up">
+      Still have a question? <a href="#contact" class="text-navy font-semibold underline underline-offset-2 hover:text-gold-700">Reach out to us directly</a>.
+    </p>
+  </div>
+</section>
+
+<!-- ============ SECTION 6: CONTACT ============ -->
+<section id="contact" class="py-20 md:py-28 px-5 sm:px-8 bg-navy text-white">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
+    <div class="md:col-span-1">
+      <p class="uppercase tracking-[0.2em] text-gold text-xs font-semibold mb-3">Contact</p>
+      <h2 class="font-display text-2xl md:text-3xl font-semibold mb-4">Let's get your space sorted.</h2>
+      <p class="text-white/60 text-sm leading-relaxed">Reach out directly, or use the booking and quote tools above — whichever is easiest for you.</p>
+    </div>
+
+    <div class="md:col-span-2 grid sm:grid-cols-2 gap-8">
+      <div class="flex gap-4">
+        <i class="bi bi-telephone-fill text-gold text-xl mt-1"></i>
+        <div>
+          <h3 class="font-semibold mb-1">Phone</h3>
+          <a href="tel:+17783237301" class="text-white/70 text-sm hover:text-gold transition-colors">+778-323-7301</a>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <i class="bi bi-envelope-fill text-gold text-xl mt-1"></i>
+        <div>
+          <h3 class="font-semibold mb-1">Email</h3>
+          <a href="mailto:info@philcanpro.ca" class="text-white/70 text-sm hover:text-gold transition-colors">info@philcanpro.ca</a>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <i class="bi bi-geo-alt-fill text-gold text-xl mt-1"></i>
+        <div>
+          <h3 class="font-semibold mb-1">Service Area</h3>
+          <p class="text-white/70 text-sm">Greater Vancouver, BC and nearby cities</p>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <i class="bi bi-clock-fill text-gold text-xl mt-1"></i>
+        <div>
+          <h3 class="font-semibold mb-1">Hours</h3>
+          <p class="text-white/70 text-sm">Mon–Sat, 8:00 AM – 6:00 PM</p>
+        </div>
+      </div>
+
+      <div class="sm:col-span-2 flex gap-4 pt-2">
+        <a href="#" aria-label="Facebook" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors"><i class="bi bi-facebook"></i></a>
+        <a href="#" aria-label="Instagram" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors"><i class="bi bi-instagram"></i></a>
+        <a href="#" aria-label="Messenger" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors"><i class="bi bi-messenger"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
+    <p>&copy; <span id="year"></span> PhilCan Pro Cleaning Services. All rights reserved.</p>
+    <p>Built with care, top to bottom.</p>
+  </div>
+</section>
+
+<!-- Sticky mobile CTA -->
+<a href="#booking" class="md:hidden fixed bottom-4 right-4 z-40 bg-gold text-navy font-semibold px-5 py-3 rounded-full shadow-lg text-sm">
+  <i class="bi bi-calendar-check mr-1.5"></i>Book
+</a>
+
+<script>
+/* =========================================================================
+   GENERAL PAGE BEHAVIOR
+========================================================================= */
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+menuBtn.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', isOpen);
+  menuBtn.innerHTML = isOpen ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
+});
+document.querySelectorAll('#mobileMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    menuBtn.innerHTML = '<i class="bi bi-list"></i>';
+    menuBtn.setAttribute('aria-expanded', false);
+  });
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const revealEls = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => observer.observe(el));
+
+/* =========================================================================
+   EMAIL API CONFIG
+========================================================================= */
+const EMAIL_API_ENDPOINT = "https://YOUR-WORKER-SUBDOMAIN.workers.dev/send";
+
+const quoteForm = document.getElementById('quoteForm');
+const formNote = document.getElementById('formNote');
+quoteForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  formNote.textContent = 'Sending your request…';
+  formNote.className = 'text-xs text-ink/50 text-center';
+
+  const payload = {
+    formType: 'Quote Request',
+    Service: document.getElementById('qs-service').value,
+    Name: document.getElementById('qs-name').value,
+    Phone: document.getElementById('qs-phone').value,
+    Email: document.getElementById('qs-email').value,
+    Address: document.getElementById('qs-address').value,
+    Details: document.getElementById('qs-details').value
+  };
+
+  fetch(EMAIL_API_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+    .then(res => {
+      if (!res.ok) throw new Error('Request failed');
+      formNote.textContent = '✓ Request sent! We typically reply within 24 hours.';
+      formNote.className = 'text-xs text-green-700 text-center';
+      quoteForm.reset();
+    })
+    .catch(() => {
+      formNote.textContent = "Couldn't send automatically — please email us directly instead.";
+      formNote.className = 'text-xs text-red-600 text-center';
+    });
+});
+
+function goToQuoteForm(serviceLabel, location) {
+  const select = document.getElementById('qs-service');
+  const optionMatch = Array.from(select.options).find(o => o.value.trim() === serviceLabel.trim());
+  if (optionMatch) select.value = optionMatch.value;
+  if (location && location.trim()) {
+    document.getElementById('qs-address').value = location.trim();
+  }
+  document.getElementById('booking-quote').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+/* =========================================================================
+   BOOKING HELPERS (email-only)
+========================================================================= */
+function buildResidentialSummary() {
+  const meta = getActiveServiceMeta();
+  const lines = [];
+  if (!meta) {
+    lines.push('Service: (not selected)');
+    return lines;
+  }
+  lines.push('Service: ' + meta.label);
+  const est = computeEstimate(meta);
+  if (est.cleaningSelected) {
+    lines.push('Home Size: ' + HOME_SIZE_LABELS[resState.homesizeIndex]);
+    lines.push('Estimated Time: ' + est.cleaningItem.hours + ' hours');
+    lines.push('Cleaning Price: $' + est.cleaningPrice.toFixed(2));
+  } else {
+    lines.push('Home Size: (not selected)');
+  }
+  if (resState.type === 'standard' || resState.type === 'deep') {
+    const addonLines = addonSummaryLines();
+    lines.push('Add-ons: ' + (addonLines.length ? addonLines.join('; ') : 'None selected'));
+  }
+  if (est.cleaningSelected || est.addonsTotal > 0) {
+    lines.push('Subtotal: $' + est.subtotal.toFixed(2));
+    lines.push('GST (5%): $' + est.gst.toFixed(2));
+    lines.push('Estimated Total: $' + est.total.toFixed(2));
+  }
+  return lines;
+}
+
+function buildCommercialSummary() {
+  const labelMap = { office: 'Office', school: 'School', clinic: 'Clinic' };
+  return ['Service: Commercial — ' + (labelMap[commState.type] || '(not selected)')];
+}
+
+function sendBookingDetails(prefix) {
+  const nameEl = document.getElementById(prefix + 'NameInput');
+  const phoneEl = document.getElementById(prefix + 'PhoneInput');
+  const locEl = document.getElementById(prefix + 'LocationInput');
+  const statusEl = document.getElementById(prefix + 'SendStatus');
+  const btnEl = document.getElementById(prefix + 'SendBtn');
+
+  const name = nameEl.value.trim();
+  const phone = phoneEl.value.trim();
+  const location = locEl.value.trim();
+
+  if (!name || !phone || !location) {
+    statusEl.textContent = 'Please fill in your name, contact number and location first.';
+    statusEl.className = 'text-xs text-center mb-4 min-h-[1rem] text-red-600';
+    return;
+  }
+
+  const summaryLines = prefix === 'res' ? buildResidentialSummary() : buildCommercialSummary();
+
+  const payload = {
+    formType: prefix === 'res' ? 'Residential Booking' : 'Commercial Booking',
+    Name: name,
+    'Contact Number': phone,
+    Location: location,
+    'Booking Details': summaryLines.join('\n')
+  };
+
+  btnEl.disabled = true;
+  btnEl.innerHTML = '<i class="bi bi-hourglass-split mr-1.5"></i>Sending…';
+
+  fetch(EMAIL_API_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+    .then(res => {
+      if (!res.ok) throw new Error('Request failed');
+      statusEl.textContent = '✓ Sent! Our team has your details and will contact you shortly to confirm a date.';
+      statusEl.className = 'text-xs text-center mb-4 min-h-[1rem] text-green-700';
+      btnEl.innerHTML = '<i class="bi bi-check2-circle mr-1.5"></i>Request Sent';
+    })
+    .catch(() => {
+      statusEl.textContent = "Couldn't send automatically — please mention these details when you contact us.";
+      statusEl.className = 'text-xs text-center mb-4 min-h-[1rem] text-red-600';
+      btnEl.disabled = false;
+      btnEl.innerHTML = '<i class="bi bi-envelope-check mr-1.5"></i>Send Booking Request';
+    });
+}
+
+function contactAndCalendarHTML(prefix) {
+  return `
+    <div class="mt-6 border-t border-navy/10 pt-6">
+      <p class="text-sm font-medium text-navy mb-3">Your Contact Details</p>
+      <div class="grid sm:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label class="block text-sm font-medium text-navy mb-1.5" for="${prefix}NameInput">Full Name</label>
+          <input id="${prefix}NameInput" type="text" placeholder="Juan Dela Cruz"
+            class="w-full rounded-lg border border-navy/15 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-navy mb-1.5" for="${prefix}PhoneInput">Contact Number</label>
+          <input id="${prefix}PhoneInput" type="tel" placeholder="09XX XXX XXXX"
+            class="w-full rounded-lg border border-navy/15 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500">
+        </div>
+      </div>
+
+      <label class="block text-sm font-medium text-navy mb-1.5" for="${prefix}LocationInput">Cleaning Location</label>
+      <input id="${prefix}LocationInput" type="text" placeholder="Street address, city"
+        class="w-full rounded-lg border border-navy/15 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500">
+      <p class="text-xs text-ink/45 mt-1.5 mb-4">We'll email your name, number, location and the service you selected straight to our team. We'll reply to confirm a date and time.</p>
+
+      <button type="button" id="${prefix}SendBtn" onclick="sendBookingDetails('${prefix}')"
+        class="w-full bg-navy hover:bg-navy-700 text-white font-semibold px-6 py-3 rounded-full transition-colors mb-2">
+        <i class="bi bi-envelope-check mr-1.5"></i>Send Booking Request
+      </button>
+      <p id="${prefix}SendStatus" class="text-xs text-center mb-4 min-h-[1rem]"></p>
+    </div>
+  `;
+}
+
+function conditionNoteHTML() {
+  return `<p class="text-sm text-red-400 mt-3"><i class="bi bi-info-circle mr-1"></i>Prices may vary depending on the condition and size of the area to be cleaned.</p>`;
+}
+
+function sectionedChecklistHTML(title, sections, note) {
+  return `
+    <div class="mt-4">
+      <p class="text-xs uppercase tracking-wide font-semibold text-navy/60 mb-2">${title}</p>
+      ${note ? `<p class="text-xs text-ink/60 italic mb-2.5">${note}</p>` : ''}
+      <div class="space-y-3 max-h-64 overflow-y-auto pr-1 border border-navy/10 rounded-xl p-3 bg-cream/40">
+        ${sections.map(sec => `
+          <div>
+            <p class="text-xs font-semibold text-navy mb-1">${sec.section}</p>
+            <ul class="space-y-1">
+              ${sec.items.map(i => `<li class="flex gap-2 text-xs text-ink/70"><i class="bi bi-check2 text-gold-700 mt-0.5 shrink-0"></i><span>${i}</span></li>`).join('')}
+            </ul>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function backButtonHTML(onclickFn) {
+  return `<button type="button" onclick="${onclickFn}" class="text-sm text-navy/60 hover:text-navy inline-flex items-center gap-1.5 mb-4">
+    <i class="bi bi-arrow-left"></i> Back
+  </button>`;
+}
+
+/* =========================================================================
+   RESIDENTIAL BOOKING FLOW
+========================================================================= */
+const GST_RATE = 0.05;
+
+const STANDARD_CHECKLIST = [
+  { section: "Kitchen", items: ["Clean and sanitize countertops", "Wipe backsplash", "Clean sink and faucet", "Polish stainless steel appliances (exterior)", "Wipe exterior of refrigerator", "Wipe exterior of oven and microwave", "Clean stovetop", "Wipe cabinet fronts (exterior)", "Vacuum and mop floor", "Empty garbage and recycling"] },
+  { section: "Bathrooms", items: ["Clean and disinfect toilet (inside and outside)", "Scrub bathtub and shower walls", "Clean shower glass doors", "Clean sink and vanity", "Polish faucets and fixtures", "Clean mirrors", "Wipe cabinet fronts (exterior)", "Empty garbage bin", "Vacuum and mop floor"] },
+  { section: "Bedrooms", items: ["Dust furniture", "Wipe accessible surfaces", "Clean mirrors", "Make bed (if requested)", "Vacuum carpets or mop floors", "Empty garbage bin"] },
+  { section: "Living Room & Dining Room", items: ["Dust furniture and shelves", "Wipe coffee and side tables", "Clean mirrors and glass surfaces", "Vacuum upholstery (if accessible)", "Vacuum carpets/rugs", "Light dusting of accessible baseboards", "Remove light cobwebs (if accessible)", "Sweep and mop hard floors", "Empty garbage bin"] },
+  { section: "Laundry Room", items: ["Wipe washer and dryer exterior", "Clean countertop or folding area", "Sweep and mop floor"] }
+];
+
+const DEEP_CHECKLIST_ADDITIONS = [
+  { section: "Kitchen", items: ["Deep clean stovetop and burner grates", "Clean microwave (inside and outside)", "Detail clean backsplash", "Wipe cabinet fronts, sides, and kick plates", "Detail clean sink and faucet", "Remove light grease buildup from accessible surfaces"] },
+  { section: "Bathrooms", items: ["Remove soap scum from shower walls and glass", "Detail clean grout (light scrubbing)", "Wash baseboards", "Clean exhaust fan exterior", "Detail clean fixtures and hard-to-reach areas"] },
+  { section: "Bedrooms", items: ["Wash baseboards", "Dust blinds thoroughly", "Wipe doors and door frames"] },
+  { section: "Living & Dining Areas", items: ["Wash baseboards", "Dust blinds", "Remove cobwebs from ceilings and corners", "Wipe doors and door frames"] },
+  { section: "Laundry Room", items: ["Wash baseboards", "Dust shelves", "Wipe washer and dryer exterior in detail"] }
+];
+
+const MOVEIN_CHECKLIST_ADDITIONS = [
+  { section: "Kitchen", items: ["Clean inside and outside of refrigerator (if empty)", "Clean inside and outside of oven", "Clean inside microwave", "Clean inside and outside of cabinets and drawers", "Clean pantry shelves (if empty)", "Degrease range hood (exterior and accessible filters)", "Clean backsplash", "Clean countertops and sink", "Polish faucets and fixtures"] },
+  { section: "Bathrooms", items: ["Deep clean bathtub and shower", "Remove soap scum and hard water buildup", "Clean shower glass doors", "Clean and disinfect toilet", "Clean vanity inside and outside", "Clean mirrors", "Polish fixtures", "Clean exhaust fan exterior"] },
+  { section: "Bedrooms", items: ["Clean inside closets and shelving", "Clean inside drawers and cabinets (if built-in)", "Wash baseboards", "Clean window sills and tracks"] },
+  { section: "Living & Dining Areas", items: ["Clean inside built-in cabinets and shelves", "Wash baseboards", "Clean window sills and tracks", "Dust blinds"] },
+  { section: "Laundry Room", items: ["Clean inside and outside of washer (if empty)", "Clean inside and outside of dryer (lint trap accessible only)", "Wipe shelves and cabinets"] }
+];
+
+const POSTCONSTRUCTION_CHECKLIST = [
+  { section: "General Areas", items: ["Remove all construction dust and debris", "Vacuum all floors with a HEPA vacuum", "Damp mop hard floors", "Dust walls, ceilings, and corners", "Remove cobwebs", "Clean light fixtures, switches, and outlets", "Wipe doors, door frames, and trim", "Clean baseboards", "Clean vents and air registers"] },
+  { section: "Windows & Glass", items: ["Clean interior windows", "Remove stickers and adhesive residue", "Clean window tracks and sills", "Polish mirrors and glass doors"] },
+  { section: "Kitchen", items: ["Clean inside and outside cabinets and drawers", "Wipe countertops and backsplash", "Clean and polish sink and faucet", "Clean exterior of appliances", "Vacuum and mop floor"] },
+  { section: "Bathrooms", items: ["Clean and sanitize toilets", "Clean sinks and faucets", "Clean showers and tubs", "Polish mirrors", "Wipe cabinets and countertops", "Mop floors"] },
+  { section: "Bedrooms & Living Areas", items: ["Dust all surfaces", "Clean closets and shelving", "Wipe interior doors", "Vacuum carpets", "Mop hard floors"] },
+  { section: "Detail Cleaning", items: ["Remove paint splatters (where safe)", "Remove caulk or silicone residue", "Remove drywall dust from all surfaces", "Spot clean walls", "Polish stainless steel", "Final quality inspection"] }
+];
+
+const ADDON_OPTIONS = [
+  { id: 'fridge',       label: 'Inside Fridge',                          price: 59, type: 'flat' },
+  { id: 'oven',         label: 'Inside Oven',                            price: 69, type: 'flat' },
+  { id: 'rangehood',    label: 'Range Hood (Interior & Exterior)',       price: 49, type: 'flat' },
+  { id: 'kitchencab',   label: 'Inside Kitchen Cabinets (Empty)',        price: 49, type: 'flat' },
+  { id: 'bathcab',      label: 'Inside Bathroom Cabinets',               price: 29, type: 'flat' },
+  { id: 'wardrobe',     label: 'Inside Bedroom Wardrobe/Closet (Empty)', price: 39, type: 'flat' },
+  { id: 'windows',      label: 'Interior Windows',                       price: 9,  type: 'perUnit', unit: 'window' },
+  { id: 'windowtracks', label: 'Window Tracks & Sills Cleaning',         price: 9,  type: 'perUnit', unit: 'window (pair)' },
+  { id: 'blinds',       label: 'Blinds',                                 price: 19, type: 'perUnit', unit: 'blind' },
+  { id: 'baseboards',   label: 'Baseboards',                             price: 59, type: 'flat' },
+  { id: 'laundry',      label: 'Laundry (Wash, Dry & Fold)',             price: 29, type: 'perUnit', unit: 'load' },
+  { id: 'dishes',       label: 'Dishes',                                 price: 19, type: 'flat' },
+  { id: 'linens',       label: 'Change Bed Linens',                      price: 9,  type: 'perUnit', unit: 'bed' },
+  { id: 'pethair',      label: 'Pet Hair Removal',                       price: 39, type: 'flat' },
+  { id: 'balcony',      label: 'Balcony/Patio',                          price: 49, type: 'flat' },
+  { id: 'garage',       label: 'Garage Sweep',                           price: 49, type: 'flat' }
+];
+const ADDON_SERVICE_NOTE = "Add-on prices are based on standard-size items and average conditions. Additional charges may apply for heavy buildup, excessive soil, or services requiring extra time and labour.";
+
+const HOME_SIZE_LABELS = [
+  "Studio", "1 Bed / 1 Bath", "2 Bed / 1 Bath", "2 Bed / 2 Bath",
+  "3 Bed / 1 Bath", "3 Bed / 2 Bath", "4 Bed / 2 Bath", "4 Bed / 3 Bath", "5 Bed / 3 Bath"
+];
+
+const STANDARD_PRICING = [
+  { hours: 3,   price: 119 }, { hours: 3.5, price: 129 }, { hours: 4,  price: 149 },
+  { hours: 4.5, price: 169 }, { hours: 5,   price: 189 }, { hours: 6,  price: 219 },
+  { hours: 7,   price: 259 }, { hours: 7.5, price: 279 }, { hours: 8,  price: 299 }
+];
+const DEEP_PRICING = [
+  { hours: 4.5, price: 189 }, { hours: 5,  price: 209 }, { hours: 6,  price: 249 },
+  { hours: 6.5, price: 269 }, { hours: 7,  price: 299 }, { hours: 8,  price: 339 },
+  { hours: 9,   price: 379 }, { hours: 10, price: 419 }, { hours: 12, price: 509 }
+];
+const MOVEIN_PRICING = [
+  { hours: 4,   price: 209 }, { hours: 5,   price: 259 }, { hours: 6,  price: 319 },
+  { hours: 6.5, price: 339 }, { hours: 7,   price: 369 }, { hours: 7.5, price: 399 },
+  { hours: 9,   price: 469 }, { hours: 9.5, price: 499 }, { hours: 12, price: 629 }
+];
+const POSTCONSTRUCTION_PRICING = [
+  { hours: 5,  price: 299 }, { hours: 6,   price: 379 }, { hours: 7,  price: 439 },
+  { hours: 7.5, price: 469 }, { hours: 9,  price: 559 }, { hours: 9.5, price: 589 },
+  { hours: 11, price: 689 }, { hours: 12, price: 749 }, { hours: 14, price: 869 }
+];
+
+function getActiveServiceMeta() {
+  if (resState.type === 'standard') return { pricing: STANDARD_PRICING, label: 'Residential — General (Standard Clean)' };
+  if (resState.type === 'deep')     return { pricing: DEEP_PRICING,     label: 'Residential — General (Deep Clean)' };
+  if (resState.type === 'movein')   return { pricing: MOVEIN_PRICING,   label: 'Residential — Move In / Move Out' };
+  if (resState.type === 'postconstruction') return { pricing: POSTCONSTRUCTION_PRICING, label: 'Residential — Post-Construction' };
+  return null;
+}
+
+function pricingSelectorHTML(meta) {
+  return `
+    <div class="mt-5">
+      <label class="block text-sm font-medium text-navy mb-1.5" for="homeSizeSelect">Home Size</label>
+      <select id="homeSizeSelect" onchange="updateHomeSize(this.value)"
+        class="w-full rounded-lg border border-navy/15 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500">
+        <option value="">Select your home size…</option>
+        ${HOME_SIZE_LABELS.map((label, i) => `<option value="${i}" ${resState.homesizeIndex === i ? 'selected' : ''}>${label} — ~${meta.pricing[i].hours}h, starts at $${meta.pricing[i].price}</option>`).join('')}
+      </select>
+    </div>
+  `;
+}
+
+function computeAddonsTotal() {
+  let total = 0;
+  ADDON_OPTIONS.forEach(a => {
+    const state = resState.addons[a.id];
+    if (state && state.checked) {
+      const qty = a.type === 'perUnit' ? (state.qty || 1) : 1;
+      total += a.price * qty;
+    }
+  });
+  return total;
+}
+
+function addonSummaryLines() {
+  const lines = [];
+  ADDON_OPTIONS.forEach(a => {
+    const state = resState.addons[a.id];
+    if (state && state.checked) {
+      if (a.type === 'perUnit') {
+        const qty = state.qty || 1;
+        lines.push(`${a.label} x${qty} — $${(a.price * qty).toFixed(2)}`);
+      } else {
+        lines.push(`${a.label} — $${a.price.toFixed(2)}`);
+      }
+    }
+  });
+  return lines;
+}
+
+function computeEstimate(meta) {
+  const cleaningSelected = !!(meta && resState.homesizeIndex !== null && meta.pricing[resState.homesizeIndex]);
+  const cleaningItem = cleaningSelected ? meta.pricing[resState.homesizeIndex] : null;
+  const cleaningPrice = cleaningItem ? cleaningItem.price : 0;
+  const addonsTotal = (resState.type === 'standard' || resState.type === 'deep') ? computeAddonsTotal() : 0;
+  const subtotal = cleaningPrice + addonsTotal;
+  const gst = subtotal * GST_RATE;
+  const total = subtotal + gst;
+  return { cleaningSelected, cleaningItem, cleaningPrice, addonsTotal, subtotal, gst, total };
+}
+
+function fullEstimateHTML(meta) {
+  const est = computeEstimate(meta);
+  if (!est.cleaningSelected && est.addonsTotal === 0) return '';
+  return `
+    <div class="mt-3 bg-gold-100 border border-gold-300/60 rounded-xl px-4 py-3 text-sm text-navy space-y-1">
+      ${est.cleaningSelected ? `<div class="flex justify-between"><span>Estimated time</span><span class="font-medium">${est.cleaningItem.hours} hours</span></div>` : ''}
+      ${est.cleaningSelected ? `<div class="flex justify-between"><span>Cleaning</span><span class="font-medium">$${est.cleaningPrice.toFixed(2)}</span></div>` : ''}
+      ${est.addonsTotal > 0 ? `<div class="flex justify-between"><span>Add-ons</span><span class="font-medium">$${est.addonsTotal.toFixed(2)}</span></div>` : ''}
+      <div class="flex justify-between"><span>Subtotal</span><span class="font-medium">$${est.subtotal.toFixed(2)}</span></div>
+      <div class="flex justify-between"><span>GST (5%)</span><span class="font-medium">$${est.gst.toFixed(2)}</span></div>
+      <div class="flex justify-between border-t border-gold-300/60 pt-1 mt-1"><span class="font-semibold">Estimated Total</span><span class="font-semibold">$${est.total.toFixed(2)}</span></div>
+    </div>
+  `;
+}
+
+function addonsSectionHTML() {
+  const total = computeAddonsTotal();
+  const selectedCount = ADDON_OPTIONS.filter(a => resState.addons[a.id] && resState.addons[a.id].checked).length;
+  return `
+    <div class="mt-5 border border-navy/10 rounded-xl overflow-hidden">
+      <button type="button" onclick="toggleAddonsPanel()" class="w-full flex items-center justify-between gap-3 px-4 py-3 bg-cream/60 hover:bg-cream transition-colors">
+        <span class="text-left">
+          <span class="text-xs uppercase tracking-wide font-semibold text-navy/70 block">Add-ons (optional)</span>
+          <span class="text-xs text-ink/50">${selectedCount ? selectedCount + ' selected — $' + total.toFixed(2) : 'Tap to add extras'}</span>
+        </span>
+        <i class="bi bi-chevron-down text-navy/50 transition-transform ${resState.addonsOpen ? 'rotate-180' : ''}"></i>
+      </button>
+      ${resState.addonsOpen ? `
+        <div class="p-4 space-y-2.5 max-h-72 overflow-y-auto border-t border-navy/10">
+          ${ADDON_OPTIONS.map(a => {
+            const state = resState.addons[a.id] || { checked: false, qty: 1 };
+            return `
+              <div class="flex items-center justify-between gap-3 text-sm">
+                <label class="flex items-center gap-2.5 text-ink/75 flex-1">
+                  <input type="checkbox" onchange="toggleResAddon('${a.id}', this.checked)" ${state.checked ? 'checked' : ''} class="rounded border-navy/30 text-gold-700 focus:ring-gold-500 shrink-0">
+                  <span>${a.label} <span class="text-ink/40">— $${a.price}${a.type === 'perUnit' ? ' / ' + a.unit : ''}</span></span>
+                </label>
+                ${a.type === 'perUnit' && state.checked ? `
+                  <input type="number" min="1" value="${state.qty || 1}" onchange="updateResAddonQty('${a.id}', this.value)"
+                    class="w-14 rounded-lg border border-navy/15 px-2 py-1 text-xs text-center focus:outline-none focus:ring-2 focus:ring-gold-500 shrink-0">
+                ` : ''}
+              </div>
+            `;
+          }).join('')}
+          <p class="text-sm text-red-400 pt-1 border-t border-navy/10 mt-1">${ADDON_SERVICE_NOTE}</p>
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+let resState = { type: null, homesizeIndex: null, addons: {}, addonsOpen: false };
+
+function openResidentialModal() {
+  resState = { type: null, homesizeIndex: null, addons: {}, addonsOpen: false };
+  renderResidentialModal();
+  document.getElementById('residentialModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeResidentialModal() {
+  document.getElementById('residentialModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function selectResType(type) {
+  resState.type = type;
+  resState.homesizeIndex = null;
+  renderResidentialModal();
+}
+function backToResType() {
+  resState.type = null;
+  resState.homesizeIndex = null;
+  renderResidentialModal();
+}
+function updateHomeSize(index) {
+  resState.homesizeIndex = index === '' ? null : parseInt(index, 10);
+  renderResidentialModal();
+}
+function toggleAddonsPanel() {
+  resState.addonsOpen = !resState.addonsOpen;
+  renderResidentialModal();
+}
+function toggleResAddon(id, checked) {
+  if (!resState.addons[id]) resState.addons[id] = { checked: false, qty: 1 };
+  resState.addons[id].checked = checked;
+  renderResidentialModal();
+}
+function updateResAddonQty(id, qty) {
+  qty = parseInt(qty, 10) || 1;
+  if (qty < 1) qty = 1;
+  if (!resState.addons[id]) resState.addons[id] = { checked: true, qty: 1 };
+  resState.addons[id].qty = qty;
+  renderResidentialModal();
+}
+function residentialToQuote() {
+  const loc = document.getElementById('resLocationInput');
+  const meta = getActiveServiceMeta();
+  const label = meta ? meta.label : 'Residential — General (Standard Clean)';
+  goToQuoteForm(label, loc ? loc.value : '');
+  closeResidentialModal();
+}
+
+function renderResidentialModal() {
+  const typeButtons = `
+    <p class="text-sm font-medium text-navy mb-3">What type of residential cleaning do you need?</p>
+    <div class="grid sm:grid-cols-2 gap-3">
+      <button type="button" onclick="selectResType('standard')" class="choice-btn ${resState.type === 'standard' ? 'active' : ''}">
+        <i class="bi bi-stars text-navy text-lg mb-1.5 block"></i>
+        <span class="font-semibold text-navy text-sm block">Standard Clean</span>
+        <span class="text-xs text-ink/60">Flat estimate by home size</span>
+      </button>
+      <button type="button" onclick="selectResType('deep')" class="choice-btn ${resState.type === 'deep' ? 'active' : ''}">
+        <i class="bi bi-magic text-navy text-lg mb-1.5 block"></i>
+        <span class="font-semibold text-navy text-sm block">Deep Clean</span>
+        <span class="text-xs text-ink/60">More thorough — flat estimate by home size</span>
+      </button>
+      <button type="button" onclick="selectResType('movein')" class="choice-btn ${resState.type === 'movein' ? 'active' : ''}">
+        <i class="bi bi-box-seam text-navy text-lg mb-1.5 block"></i>
+        <span class="font-semibold text-navy text-sm block">Move In / Move Out</span>
+        <span class="text-xs text-ink/60">Flat estimate by home size</span>
+      </button>
+      <button type="button" onclick="selectResType('postconstruction')" class="choice-btn ${resState.type === 'postconstruction' ? 'active' : ''}">
+        <i class="bi bi-tools text-navy text-lg mb-1.5 block"></i>
+        <span class="font-semibold text-navy text-sm block">Post-Construction</span>
+        <span class="text-xs text-ink/60">Flat estimate by home size</span>
+      </button>
+    </div>
+  `;
+
+  let detail = '';
+
+  if (resState.type) {
+    detail += backButtonHTML('backToResType()');
+
+    if (resState.type === 'standard') {
+      const meta = getActiveServiceMeta();
+      detail += sectionedChecklistHTML("What's included — Standard Clean", STANDARD_CHECKLIST);
+      detail += pricingSelectorHTML(meta);
+      detail += addonsSectionHTML();
+      detail += fullEstimateHTML(meta);
+      detail += conditionNoteHTML();
+      detail += contactAndCalendarHTML('res');
+    }
+
+    if (resState.type === 'deep') {
+      const meta = getActiveServiceMeta();
+      detail += sectionedChecklistHTML("What's included — Deep Clean", DEEP_CHECKLIST_ADDITIONS, "Includes all Standard Cleaning tasks, plus:");
+      detail += pricingSelectorHTML(meta);
+      detail += addonsSectionHTML();
+      detail += fullEstimateHTML(meta);
+      detail += conditionNoteHTML();
+      detail += contactAndCalendarHTML('res');
+    }
+
+    if (resState.type === 'movein') {
+      const meta = getActiveServiceMeta();
+      detail += sectionedChecklistHTML("What's included", MOVEIN_CHECKLIST_ADDITIONS, "Includes all Standard and Deep Cleaning tasks, plus:");
+      detail += pricingSelectorHTML(meta);
+      detail += fullEstimateHTML(meta);
+      detail += conditionNoteHTML();
+      detail += contactAndCalendarHTML('res');
+    }
+
+    if (resState.type === 'postconstruction') {
+      const meta = getActiveServiceMeta();
+      detail += sectionedChecklistHTML("What's included", POSTCONSTRUCTION_CHECKLIST);
+      detail += pricingSelectorHTML(meta);
+      detail += fullEstimateHTML(meta);
+      detail += conditionNoteHTML();
+      detail += contactAndCalendarHTML('res');
+    }
+
+    detail += `<p class="text-xs text-ink/45 mt-4 text-center">Rather send details instead? <a href="javascript:void(0)" onclick="residentialToQuote()" class="text-navy underline underline-offset-2 hover:text-gold-700">Request a custom quote</a></p>`;
+  }
+
+  document.getElementById('resModalBody').innerHTML = typeButtons + detail;
+}
+
+document.getElementById('openResidentialBtn').addEventListener('click', openResidentialModal);
+document.getElementById('residentialModalOverlay').addEventListener('click', (e) => {
+  if (e.target.id === 'residentialModalOverlay') closeResidentialModal();
+});
+
+/* =========================================================================
+   COMMERCIAL BOOKING FLOW
+========================================================================= */
+let commState = { type: null };
+
+function openCommercialModal() {
+  commState = { type: null };
+  renderCommercialModal();
+  document.getElementById('commercialModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCommercialModal() {
+  document.getElementById('commercialModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function selectCommType(type) {
+  commState.type = type;
+  renderCommercialModal();
+}
+function backToCommType() {
+  commState.type = null;
+  renderCommercialModal();
+}
+function commercialToQuote() {
+  const loc = document.getElementById('commLocationInput');
+  const labelMap = { office: 'Commercial — Office', school: 'Commercial — School', clinic: 'Commercial — Clinic' };
+  goToQuoteForm(labelMap[commState.type] || 'Commercial — Office', loc ? loc.value : '');
+  closeCommercialModal();
+}
+
+function renderCommercialModal() {
+  const typeButtons = `
+    <p class="text-sm font-medium text-navy mb-3">What type of establishment is this for?</p>
+    <div class="grid sm:grid-cols-3 gap-3">
+      <button type="button" onclick="selectCommType('office')" class="choice-btn ${commState.type === 'office' ? 'active' : ''}">
+        <i class="bi bi-briefcase text-navy text-lg mb-1.5 block"></i>
+        <span class="font-semibold text-navy text-sm block">Office</span>
+      </button>
+      <button type="button" onclick="selectCommType('school')" class="choice-btn ${commState.type === 'school' ? 'active' : ''}">
+        <i class="bi bi-mortarboard text-navy text-lg mb-1.5 block"></i>
+        <span class="font-semibold text-navy text-sm block">School</span>
+      </button>
+      <button type="button" onclick="selectCommType('clinic')" class="choice-btn ${commState.type === 'clinic' ? 'active' : ''}">
+        <i class="bi bi-heart-pulse text-navy text-lg mb-1.5 block"></i>
+        <span class="font-semibold text-navy text-sm block">Clinic</span>
+      </button>
+    </div>
+  `;
+
+  let detail = '';
+  if (commState.type) {
+    detail += backButtonHTML('backToCommType()');
+    detail += `
+      <div class="bg-navy/5 border border-navy/10 rounded-xl px-4 py-3 text-sm text-navy mb-2">
+        <i class="bi bi-info-circle mr-1.5 text-gold-700"></i>Commercial pricing is confirmed after an on-site visit, since needs vary by space size and condition.
+      </div>
+      <div class="bg-gold-100 border border-gold-300/60 rounded-xl px-4 py-3 text-sm text-navy">
+        <i class="bi bi-credit-card mr-1.5 text-gold-700"></i>Payment is due 30 days after invoice date.
+      </div>
+    `;
+    detail += contactAndCalendarHTML('comm');
+    detail += `<p class="text-xs text-ink/45 mt-4 text-center">Rather send details instead? <a href="javascript:void(0)" onclick="commercialToQuote()" class="text-navy underline underline-offset-2 hover:text-gold-700">Request a custom quote</a></p>`;
+  }
+
+  document.getElementById('commModalBody').innerHTML = typeButtons + detail;
+}
+
+document.getElementById('openCommercialBtn').addEventListener('click', openCommercialModal);
+document.getElementById('commercialModalOverlay').addEventListener('click', (e) => {
+  if (e.target.id === 'commercialModalOverlay') closeCommercialModal();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeResidentialModal();
+    closeCommercialModal();
+  }
+});
+
+/* =========================================================================
+   REVIEWS — Static curated reviews
+========================================================================= */
+const STATIC_REVIEWS = [
+  {
+    author: "Maria S.",
+    rating: 5,
+    text: "The team was professional, thorough, and left our home spotless. Highly recommend PhilCan Pro!",
+    time: "2 months ago"
+  },
+  {
+    author: "James T.",
+    rating: 5,
+    text: "Booked a move-out clean and they did an excellent job. Fair pricing and on time.",
+    time: "3 months ago"
+  },
+  {
+    author: "A. Rivera",
+    rating: 5,
+    text: "Great communication and attention to detail. Will definitely use them again for our office.",
+    time: "1 month ago"
+  }
+];
+
+function starIconsHTML(rating) {
+  let html = '';
+  const rounded = Math.round(rating);
+  for (let i = 1; i <= 5; i++) {
+    html += `<i class="bi ${i <= rounded ? 'bi-star-fill text-gold' : 'bi-star text-navy/20'} text-sm"></i>`;
+  }
+  return html;
+}
+
+function renderStaticReviews() {
+  const grid = document.getElementById('reviewsGrid');
+  const summary = document.getElementById('googleRatingSummary');
+
+  if (STATIC_REVIEWS.length) {
+    const avg = (STATIC_REVIEWS.reduce((s, r) => s + r.rating, 0) / STATIC_REVIEWS.length).toFixed(1);
+    summary.innerHTML = `
+      <span class="font-display text-navy text-3xl font-semibold">${avg}</span>
+      <div>
+        <div class="flex gap-0.5">${starIconsHTML(avg)}</div>
+        <p class="text-xs text-ink/50 mt-0.5">${STATIC_REVIEWS.length} recent reviews</p>
+      </div>
+    `;
+  }
+
+  if (!STATIC_REVIEWS.length) {
+    grid.innerHTML = `<p class="text-sm text-ink/50 sm:col-span-2 lg:col-span-3">Reviews coming soon.</p>`;
+    return;
+  }
+
+  grid.innerHTML = STATIC_REVIEWS.map(r => `
+    <div class="p-6 rounded-2xl border border-navy/10 bg-cream">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-display font-semibold text-sm shrink-0">
+          ${(r.author || '?').split(' ').map(n => n[0]).join('').slice(0,2)}
+        </span>
+        <div>
+          <p class="font-semibold text-navy text-sm">${r.author}</p>
+          <div class="flex gap-0.5">${starIconsHTML(r.rating)}</div>
+        </div>
+      </div>
+      <p class="text-sm text-ink/70 leading-relaxed">${r.text}</p>
+      <p class="text-xs text-ink/40 mt-3">${r.time || ''}</p>
+    </div>
+  `).join('');
+}
+
+renderStaticReviews();
+
+/* =========================================================================
+   FAQ ACCORDION
+========================================================================= */
+const faqData = [
+  {
+    q: "What's included in a standard cleaning?",
+    a: "A standard clean covers the kitchen, bathrooms, bedrooms, living/dining areas and laundry room — countertops, sinks, floors, mirrors, appliance exteriors, and general tidying throughout. Open the Residential booking option above and select Standard Clean for the full room-by-room checklist."
+  },
+  {
+    q: "What's the difference between Standard and Deep Cleaning?",
+    a: "Deep Cleaning includes everything in a Standard Clean, plus more detailed work — baseboards, blinds, grout, exhaust fans, cobwebs, and other spots that build up over time. Both are priced as a flat estimate based on your home's size, with Deep Cleaning taking more hours and costing more given the added scope."
+  },
+  {
+    q: "How is pricing determined?",
+    a: "All four residential services (Standard, Deep, Move In/Out and Post-Construction) use a flat starting price based on your home's size (Studio up to 5 Bed/3 Bath), including GST. Commercial pricing is confirmed after an on-site visit. All prices may vary depending on condition and size."
+  },
+  {
+    q: "Do I need to be home during the cleaning? Do I leave a key?",
+    a: "No, you don't need to be present. Many customers provide entry instructions, a lockbox code, or leave a key with our team in advance. Access details are kept confidential and only shared with the assigned cleaning crew for that visit."
+  },
+  {
+    q: "Is my home or office safe with your team?",
+    a: "Yes. Every cleaner is background-checked and trained before they're assigned to a booking, and our team is insured. If anything about a visit doesn't meet your expectations, contact us within 24 hours and we'll make it right."
+  },
+  {
+    q: "What's your cancellation policy?",
+    a: "We ask for at least 3 hours' notice to cancel or reschedule. Cancellations made less than 3 hours before the scheduled time are charged 50% of the service price, since our team has already turned down other bookings to hold that slot for you."
+  },
+  {
+    q: "Do you clean around pets?",
+    a: "We're happy to clean homes with pets, but for everyone's safety we ask that pets be kept in a separate room or crate during the visit. Vacuums and cleaning equipment can startle animals, and it also protects our cleaners from any accidental defensive reaction."
+  },
+  {
+    q: "Do I need to provide cleaning supplies or equipment?",
+    a: "No — our team brings all standard cleaning products and equipment. Add-ons like inside-fridge or inside-oven cleaning can be selected during booking; final availability and pricing are confirmed with your quote."
+  },
+  {
+    q: "Can commercial clients pay in installments?",
+    a: "Yes — we offer installment payment plans of up to 30 days for commercial cleaning contracts. Pricing itself is confirmed after we visit your office, school or clinic to assess the space."
+  },
+  {
+    q: "What areas do you service?",
+    a: "We currently serve Greater Vancouver, BC and nearby cities. If you're just outside that range, send a quote request and we'll confirm whether we can accommodate your location."
+  },
+  {
+    q: "Will I get a confirmation of my booking?",
+    a: "Yes — after you send a booking request, our team will contact you to confirm the date and time. You'll also receive an email confirmation with the full details once the appointment is locked in."
+  }
+];
+
+const faqList = document.getElementById('faqList');
+faqData.forEach((item) => {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'faq-item border-b border-navy/10 last:border-b-0';
+  wrapper.innerHTML = `
+    <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left py-5" aria-expanded="false">
+      <span class="font-display font-semibold text-navy text-base md:text-lg">${item.q}</span>
+      <i class="bi bi-chevron-down faq-chevron text-navy/50 shrink-0"></i>
+    </button>
+    <div class="faq-answer">
+      <p class="text-sm text-ink/70 leading-relaxed pb-5 pr-8">${item.a}</p>
+    </div>
+  `;
+  faqList.appendChild(wrapper);
+
+  const trigger = wrapper.querySelector('.faq-trigger');
+  trigger.addEventListener('click', () => {
+    const isOpen = wrapper.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      wrapper.classList.add('open');
+      trigger.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
