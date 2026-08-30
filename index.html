@@ -499,7 +499,7 @@
         <i class="bi bi-envelope-fill text-gold text-xl mt-1"></i>
         <div>
           <h3 class="font-semibold mb-1">Email</h3>
-          <a href="mailto:info@philcanpro.ca" class="text-white/70 text-sm hover:text-gold transition-colors">info@philcanpro.ca</a>
+          <a href="mailto:info@philcanpro.ca" class="text-white/70 text-sm hover:text-gold transition-colors">info@philcanproservices.ca</a>
         </div>
       </div>
       <div class="flex gap-4">
@@ -571,50 +571,81 @@ revealEls.forEach(el => observer.observe(el));
 /* =========================================================================
    EMAIL API CONFIG
 ========================================================================= */
-const EMAIL_API_ENDPOINT = "https://YOUR-WORKER-SUBDOMAIN.workers.dev/send";
+const EMAIL_API_ENDPOINT = "https://api.philcanpro.ca/send";
 
 const quoteForm = document.getElementById('quoteForm');
 const formNote = document.getElementById('formNote');
-quoteForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  formNote.textContent = 'Sending your request…';
-  formNote.className = 'text-xs text-ink/50 text-center';
 
-  const payload = {
-    formType: 'Quote Request',
-    Service: document.getElementById('qs-service').value,
-    Name: document.getElementById('qs-name').value,
-    Phone: document.getElementById('qs-phone').value,
-    Email: document.getElementById('qs-email').value,
-    Address: document.getElementById('qs-address').value,
-    Details: document.getElementById('qs-details').value
-  };
+if (quoteForm) {
+  quoteForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-  fetch(EMAIL_API_ENDPOINT, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  })
-    .then(res => {
-      if (!res.ok) throw new Error('Request failed');
-      formNote.textContent = '✓ Request sent! We typically reply within 24 hours.';
-      formNote.className = 'text-xs text-green-700 text-center';
+    if (formNote) {
+      formNote.textContent = 'Sending your request…';
+      formNote.className = 'text-xs text-ink/50 text-center';
+    }
+
+    // Safely retrieve input values or fall back to empty string
+    const getValue = (id) => document.getElementById(id)?.value?.trim() || '';
+
+    const payload = {
+      formType: 'Quote Request',
+      Service: getValue('qs-service'),
+      Name: getValue('qs-name'),
+      Phone: getValue('qs-phone'),
+      Email: getValue('qs-email'),
+      Address: getValue('qs-address'),
+      Details: getValue('qs-details')
+    };
+
+    try {
+      const res = await fetch(EMAIL_API_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || 'Request failed');
+      }
+
+      if (formNote) {
+        formNote.textContent = '✓ Request sent! We typically reply within 24 hours.';
+        formNote.className = 'text-xs text-green-700 text-center';
+      }
       quoteForm.reset();
-    })
-    .catch(() => {
-      formNote.textContent = "Couldn't send automatically — please email us directly instead.";
-      formNote.className = 'text-xs text-red-600 text-center';
-    });
-});
+
+    } catch (err) {
+      console.error('Submission error:', err);
+      if (formNote) {
+        formNote.textContent = "Couldn't send automatically — please email us directly instead.";
+        formNote.className = 'text-xs text-red-600 text-center';
+      }
+    }
+  });
+}
 
 function goToQuoteForm(serviceLabel, location) {
   const select = document.getElementById('qs-service');
-  const optionMatch = Array.from(select.options).find(o => o.value.trim() === serviceLabel.trim());
-  if (optionMatch) select.value = optionMatch.value;
-  if (location && location.trim()) {
-    document.getElementById('qs-address').value = location.trim();
+  const addressInput = document.getElementById('qs-address');
+  const targetSection = document.getElementById('booking-quote');
+
+  if (select && serviceLabel) {
+    const optionMatch = Array.from(select.options).find(
+      (o) => o.value.trim().toLowerCase() === serviceLabel.trim().toLowerCase()
+    );
+    if (optionMatch) select.value = optionMatch.value;
   }
-  document.getElementById('booking-quote').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  if (addressInput && location && location.trim()) {
+    addressInput.value = location.trim();
+  }
+
+  if (targetSection) {
+    targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 }
 
 /* =========================================================================
